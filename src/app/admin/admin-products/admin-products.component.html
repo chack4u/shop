@@ -1,0 +1,33 @@
+<p>
+  admin-products works!
+</p>
+<ul>
+    <li *ngFor="let item of items | async">
+       {{ items | json }}
+    </li>
+  </ul>
+  {{ itemCount }}
+
+<a routerLink="/admin/products/new" class="btn btn-primary">New product</a>
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">title</th>
+        <th scope="col">price</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items | async">
+        <th scope="row">1</th>
+        <td>{{ item.title}}</td>
+        <td>{{ item.price}}</td>
+        <td>
+          <a [routerLink]="['/admin/products',item.id]">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
